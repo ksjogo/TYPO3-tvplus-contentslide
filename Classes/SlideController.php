@@ -144,14 +144,14 @@ class SlideController extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     protected function getPageFlexValue($page, $field)
     {
         $xml = GeneralUtility::xml2array($page['tx_templavoilaplus_flex']);
-        $ds = BackendUtility::getFlexFormDS($GLOBALS['TCA']['pages']['columns']['tx_templavoilaplus_flex']['config'], $page, 'pages', 'tx_templavoilaplus_flex');
-        if (is_array($ds) && is_array($ds['meta'])) {
-            $langChildren = (int) $ds['meta']['langChildren'];
-            $langDisable = (int) $ds['meta']['langDisable'];
-        } else {
+        //$ds = BackendUtility::getFlexFormDS($GLOBALS['TCA']['pages']['columns']['tx_templavoilaplus_flex']['config'], $page, 'pages', 'tx_templavoilaplus_flex');
+        //if (is_array($ds) && is_array($ds['meta'])) {
+        //    $langChildren = (int) $ds['meta']['langChildren'];
+        //    $langDisable = (int) $ds['meta']['langDisable'];
+        //} else {
             $langChildren = 0;
             $langDisable = 0;
-        }
+        //}
         $translatedLanguagesArr = $this->getAvailableLanguages($page['uid']);
         $tryLang = $GLOBALS['TSFE']->sys_language_content;
         $tryLangArr = $this->languageFallback;
